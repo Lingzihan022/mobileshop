@@ -5,13 +5,13 @@
         <div>购物街</div>
       </template>
     </nav-bar>
-    <home-swiper :banners="banners" @swiperImageLoad="swiperImageLoad" />
+    <home-swiper :banners="banners" />
   </div>
 </template>
 <script>
 import NavBar from "components/common/navbar/NavBar.vue";
 import { getHomeMultidata } from "network/home";
-// import HomeSwiper from "./childComps/HomeSwiper.vue";
+import HomeSwiper from "./childcomps/HomeSwiper";
 export default {
   name: "Home",
   components: {
@@ -21,15 +21,15 @@ export default {
   data() {
     return {
       banners: [],
-      recommends: [],
+      // recommends: [],
     };
   },
   created() {
     getHomeMultidata().then((res) => {
       // console.log(res);
       this.banners = res.data.banner.list;
-      this.recommends = res.data.recommend.list;
-      console.log(this.banners);
+      // this.recommends = res.data.recommend.list;
+      // console.log(this.banners);
     });
   },
 };
