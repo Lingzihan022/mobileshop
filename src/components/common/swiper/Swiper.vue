@@ -166,6 +166,7 @@ export default {
   /* height: 200px; */
   overflow: hidden;
   position: relative;
+  padding-top: 44px;
 }
 .swiper {
   display: flex;
