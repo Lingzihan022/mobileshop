@@ -40,6 +40,7 @@ export default {
 .TabControl {
   padding: 10px 0;
   display: flex;
+  /* position: sticky; */
   text-align: center;
   font-size: 12px;
   background-color: #fff;

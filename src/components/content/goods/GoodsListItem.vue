@@ -1,14 +1,17 @@
 <template>
   <div class="goods-item">
-    <img :src="goodsItem.show.img" alt="" />
-    <div>
-      <p class="goods-info">{{ goodsItem.title }}</p>
-      <span class="goods-price">{{ goodsItem.price }}</span>
-      <span class="goods-cfav">{{ goodsItem.cfav }}</span>
-    </div>
+    <a :href="goodsItem.link">
+      <img :src="goodsItem.show.img" alt="" @load="imgLoad" />
+      <div>
+        <p class="goods-info">{{ goodsItem.title }}</p>
+        <span class="goods-price">{{ goodsItem.price }}</span>
+        <span class="goods-cfav">{{ goodsItem.cfav }}</span>
+      </div>
+    </a>
   </div>
 </template>
 <script>
+import { emitter } from "components/common/mitt/Mitt.js";
 export default {
   name: "GoodListItem",
   props: {
@@ -17,6 +20,16 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+  mounted() {
+    // console.log(this.goodsItem);
+  },
+
+  methods: {
+    imgLoad() {
+      emitter.emit("imageUpLoad");
+      console.log("imgLoad");
     },
   },
 };
