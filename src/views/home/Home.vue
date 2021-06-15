@@ -83,6 +83,7 @@ export default {
       isShowBackUp: false,
       tabOffsetTop: 0,
       isTabFixed: false,
+      saveY: 0,
     };
   },
   created() {
@@ -104,6 +105,17 @@ export default {
     });
     // 2.监听轮播图加载完的事件 然后拿到tabcontrol的offsetTop
   },
+  activated() {
+    console.log("hi");
+    // // 回来的时候给scrollTo赋予之前存下来的位置，时间0
+    // this.$refs.scroll.scrollTo(0, this.saveY, 0);
+    // this.$refs.scroll.refresh();
+  },
+  deactivated() {
+    // 离开的时候存下scroll的位置
+    this.saveY = this.$refs.scroll.getScrollY();
+  },
+
   methods: {
     // 事件监听的方法
     tabClick(index) {

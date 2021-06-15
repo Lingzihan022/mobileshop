@@ -13,20 +13,33 @@ const routes = [
     // 默认跳转到home首页
     {
         path: '/',
-        redirect: '/home'
+        redirect: '/home',
+
     }, {
         path: '/home',
         component: Home
         // component必须是组件 不能是字符串！
+        , meta: {
+            keepAlive: true,
+        }
     }, {
         path: '/cart',
-        component: Cart
+        component: Cart,
+        meta: {
+            keepAlive: true,
+        }
     }, {
         path: '/profile',
-        component: Profile
+        component: Profile,
+        meta: {
+            keepAlive: true,
+        }
     }, {
         path: '/category',
-        component: Category
+        component: Category,
+        meta: {
+            keepAlive: true,
+        }
     }
 ]
 const router = new createRouter({

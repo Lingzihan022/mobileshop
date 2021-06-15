@@ -66,6 +66,9 @@ export default {
       this.scroll.refresh();
       console.log("------");
     },
+    getScrollY() {
+      return this.scroll ? this.scroll.y : 0;
+    },
   },
 };
 </script>
