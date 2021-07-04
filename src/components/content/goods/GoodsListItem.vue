@@ -1,17 +1,20 @@
 <template>
   <div class="goods-item">
-    <a :href="goodsItem.link">
-      <img :src="goodsItem.show.img" alt="" @load="imgLoad" />
+    <!-- :href="goodsItem.link" -->
+    <div @click="goodsClick">
+      <img :src="showImage" alt="" @load="imgLoadDebounce" />
       <div>
         <p class="goods-info">{{ goodsItem.title }}</p>
         <span class="goods-price">{{ goodsItem.price }}</span>
         <span class="goods-cfav">{{ goodsItem.cfav }}</span>
       </div>
-    </a>
+    </div>
   </div>
 </template>
 <script>
 import { emitter } from "components/common/mitt/Mitt.js";
+import { debounce } from "common/utils.js";
+
 export default {
   name: "GoodListItem",
   props: {
@@ -22,14 +25,24 @@ export default {
       },
     },
   },
+  computed: {
+    showImage() {
+      return this.goodsItem.image || this.goodsItem.show.img;
+    },
+  },
   mounted() {
     // console.log(this.goodsItem);
+    // this.$refs.scroll.refresh();
   },
 
   methods: {
-    imgLoad() {
+    imgLoadDebounce: debounce(() => {
       emitter.emit("imageUpLoad");
       console.log("imgLoad");
+    }, 500),
+    goodsClick() {
+      let iid = this.goodsItem.iid;
+      this.$router.push({ path: "/detail", query: { iid: iid } });
     },
   },
 };

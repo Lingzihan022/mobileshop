@@ -174,8 +174,8 @@ export default {
 .indicator {
   display: flex;
   position: absolute;
-  width: 100%;
-  bottom: 8px;
+
+  bottom: 5%;
 }
 .indi-item {
   margin: 0 5px;

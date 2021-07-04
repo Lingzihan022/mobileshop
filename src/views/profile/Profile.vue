@@ -102,13 +102,16 @@
       <li>99</li>
       <li>100</li></scroll
     >
+    <main-tab-bar></main-tab-bar>
   </div>
 </template>
 <script>
 import Scroll from "../../components/common/scroll/Scroll.vue";
+import MainTabBar from "components/content/mainTabBar/MainTabBar.vue";
+
 export default {
   name: "Profile",
-  components: { Scroll },
+  components: { Scroll, MainTabBar },
 };
 </script>
     

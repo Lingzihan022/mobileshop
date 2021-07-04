@@ -104,14 +104,17 @@
       <li>分类列表100</li>
     </ul>
   </scroll>
+  <main-tab-bar />
 </template>
 <script>
 import Scroll from "components/common/scroll/Scroll.vue";
+import MainTabBar from "components/content/mainTabBar/MainTabBar.vue";
 
 export default {
   name: "Category",
   components: {
     Scroll,
+    MainTabBar,
   },
   methods: {
     btnClick() {

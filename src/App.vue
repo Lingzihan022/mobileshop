@@ -8,20 +8,19 @@
           :key="$route.component"
         ></component>
       </keep-alive>
-      <!-- <component :is="Component" v-if="!$route.meta.keepalive"></component> -->
+      <component
+        :is="Component"
+        v-if="!$route.meta.keepAlive"
+        :key="$route.component"
+      ></component>
     </router-view>
-
-    <main-tab-bar />
   </div>
 </template>
 
 <script>
-import MainTabBar from "components/content/mainTabBar/MainTabBar.vue";
 export default {
   name: "App",
-  components: {
-    MainTabBar,
-  },
+  components: {},
 };
 </script>
 

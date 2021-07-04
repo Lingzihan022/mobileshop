@@ -5,6 +5,8 @@ const Home = () => import('views/home/Home.vue')
 const Cart = () => import('views/cart/Cart.vue')
 const Category = () => import('views/category/Category.vue')
 const Profile = () => import('views/profile/Profile.vue')
+const Detail = () => import('views/detail/Detail.vue')
+const Service = () => import('views/service/Service.vue')
 
 
 
@@ -39,8 +41,23 @@ const routes = [
         component: Category,
         meta: {
             keepAlive: true,
-        }
+        },
     }
+    , {
+        path: '/detail',
+        component: Detail,
+        meta: {
+            keepAlive: false,
+        },
+        // props: route => ({ query: route.query.q })
+    }, {
+        path: '/detail/service',
+        component: Service,
+        meta: {
+            keepAlive: true,
+        },
+    }
+
 ]
 const router = new createRouter({
     routes,

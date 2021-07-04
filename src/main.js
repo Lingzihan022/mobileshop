@@ -1,18 +1,14 @@
-import mitt from "mitt"
+
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-
-// import store from './store/store'
+import store from './store'
 // 一定要按照这个格式写 不然会报奇奇怪怪的错误！！！
 
 
 
-const app = createApp({});
-// createApp(App);
-// app.use(router);
 // app.mount('#app');
-createApp(App).use(router).mount('#app')
+createApp(App).use(store).use(router).mount('#app');
 
 // use(store).
 // Vue(App).$mount('#app')

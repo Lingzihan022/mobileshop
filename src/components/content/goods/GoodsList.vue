@@ -20,6 +20,10 @@ export default {
       },
     },
   },
+  created() {
+    // console.log(this.goods);
+  },
+  methods: {},
 };
 </script>
 <style scoped>

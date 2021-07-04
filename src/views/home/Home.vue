@@ -32,6 +32,8 @@
       ></tab-control>
       <goods-list :goods="showGoods" class="goodList"></goods-list>
     </scroll>
+    <main-tab-bar />
+
     <!-- <scroll class="content" ref="scroll"> -->
 
     <!-- </scroll> -->
@@ -50,6 +52,8 @@ import NavBar from "components/common/navbar/NavBar.vue";
 import TabControl from "components/content/tabControl/TabControl.vue";
 import Scroll from "components/common/scroll/Scroll.vue";
 import BackTop from "components/content/backTop/BackTop.vue";
+import MainTabBar from "components/content/mainTabBar/MainTabBar.vue";
+// import DetailTabBar from "views/detail/ChildComps/DetailTabBar.vue";
 
 import { emitter } from "components/common/mitt/Mitt.js";
 import { debounce } from "common/utils.js";
@@ -67,6 +71,7 @@ export default {
     TabControl,
     Scroll,
     BackTop,
+    MainTabBar,
   },
   data() {
     return {
@@ -106,7 +111,8 @@ export default {
     // 2.监听轮播图加载完的事件 然后拿到tabcontrol的offsetTop
   },
   activated() {
-    console.log("hi");
+    // console.log("hi");
+    this.$refs.scroll.refresh();
     // // 回来的时候给scrollTo赋予之前存下来的位置，时间0
     // this.$refs.scroll.scrollTo(0, this.saveY, 0);
     // this.$refs.scroll.refresh();
